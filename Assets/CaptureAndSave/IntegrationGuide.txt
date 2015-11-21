@@ -1,0 +1,35 @@
+**********************************
+Integration Guide of CaptureAndSave
+***********************************
+
+- Import the plugin into your project
+- Drag and drop "CaptureAndSave" and "RefreshGallery" prefab into your hierarchy from Prefab folder
+- Select "CaptureAndSave" and drag "RefreshGallery" from heirarchy to inspector
+- Plugin is setup now, you can save capture and save your screenshots into below folders as default-
+
+	* Window and MAC : My Picture or Picture folder
+		Example for window - C:\Users\YOURUSERNAME\Pictures
+		Mac : /Users/YOURUSERNAME/Pictures
+
+	* iPhone or iPad : Saved into your camera roll
+	
+	* Android : Default folder is Pictures
+	If SD Card available then 	/storage/sdcard0/Pictures/
+	otherwise /Data/bundle-identifier/files/ (installation directory/files)
+	
+	* Upload to server:
+	- Upload "upload_file.php" file from Assets/PHP folder to your PHP enable server, and create a directory named "upload" with write permission
+		For Example : PHP file URL = www.example.com/upload_file.php
+								Upload Directory = www.example.com/upload
+	- Put URL of your php script in save and capture prefab's inspector
+	
+		For more details, see my blog : http://unitydevelopers.blogspot.in/
+
+
+Notes :
+
+- See the Example sceene for more details of function calling.
+- Deploy your project on iOS to see your captured image into camera roll, on editor it will not work.
+- For android, write permission should be given in Player Settings.
+- Check the upload directory for sufficient permission to write, for uploading on server
+

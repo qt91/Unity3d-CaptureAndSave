@@ -1,0 +1,43 @@
+**********************************
+Documentation of CaptureAndSave
+***********************************
+
+
+After setting up CaptureAndSave plugin as describe in IntegrationGuide.txt, you can save your image to 
+Pictures folder for MAc & PC and in Camera roll for iOS.
+
+1:
+Get reference of CaptureAndSave script like this:
+ CaptureAndSave snapShot = GameObject.FindObjectOfType<CaptureAndSave>();
+ 
+ 2:
+ Call this function to capture full screen image and save to default location:
+ snapShot.CaptureAndSaveToAlbum();
+ snapShot.CaptureAndSaveAtPath(string path); // save on a perticular path, will not work on IOS
+ 
+ Call this function to capture perticular screen and save to default location:
+ snapShot.CaptureAndSaveToAlbum(int x, int y, int width, int height);
+ snapShot.CaptureAndSaveAtPath(int x, int y, int width, int height, string path); // save on a perticular path, will not work on IOS
+ 
+ 3:
+ Save texture at path
+ snapShot.SaveTextureAtPath(Texture2D tex2D, string path);// its not for IOS
+ 
+ Save texture in gallery
+ snapShot.SaveTextureToGallery(Texture2D tex2D);
+ 
+ 
+ 4. Transfer your pre saved image from Document directory to CameraRoll then simply call this function 
+ snapShot.TransferToCameraRoll(string path)
+ where path is the full url of the image saved in document directory.
+ 
+ 
+ 5). Upload your texture to web server
+ snapShot.UploadTextureToServer(tex);
+ 
+ Upload screenshot on server
+ snapShot.CaptureAndUploadToServer(); // full screen
+ snapShot.CaptureAndUploadToServer(int x, int y, int width, int height); // perticular screen
+ 
+ Note: path parameter will not work on iOS.
+ 
